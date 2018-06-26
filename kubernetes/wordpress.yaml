@@ -25,9 +25,9 @@ spec:
             memory: "1Gi"
         env:
         - name:  WORDPRESS_SITE_URL
-          value: 
+          value: 167.99.88.86
         - name:  WORDPRESS_HOME_URL
-          value: 
+          value: 167.99.88.86
         - name:  WORDPRESS_DB_USER
           value:  wordpress
         - name:  WORDPRESS_DB_PASSWORD

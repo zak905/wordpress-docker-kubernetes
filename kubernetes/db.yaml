@@ -21,5 +21,5 @@ spec:
       volumes:
         - name: wordpress-data
           hostPath:
-            path: /home/zakaria/Desktop/myWork/GWidgets/workspace/wordpress-docker/mysql
+            path: /root/mysql
             type: Directory
