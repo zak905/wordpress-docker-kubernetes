@@ -12,6 +12,15 @@ spec:
       containers:
       - image: mysql:5.7
         name: wordpress-db
+        env:
+        - name:  MYSQL_USER
+          value: wordpress
+        - name:  MYSQL_ROOT_PASSWORD
+          value: root
+        - name:  MYSQL_PASSWORD
+          value:  password
+        - name:  MYSQL_DATABASE
+          value:  wordpress
         ports:
           - containerPort:  3306
             name:  wordpress-db
