@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  wp
+  labels:
+    name:  wp
+spec:
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name:  wp
+    spec:
+      containers:
+      - image: quay.io/zakariaamine/wp-nginx-demo  
+        name:  wp
+        resources:
+          requests:
+            cpu: "20m"
+            memory: "1Gi"
+        env:
+        - name:  WORDPRESS_SITE_URL
+          value: 
+        - name:  WORDPRESS_HOME_URL
+          value: 
+        - name:  WORDPRESS_DB_USER
+          value:  wordpress
+        - name:  WORDPRESS_DB_PASSWORD
+          value:  password
+        - name:  WORDPRESS_DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: hostname-config
+              key: db_host                       
+        ports:
+        - containerPort:  80

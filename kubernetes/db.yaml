@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wordpress-db
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wordpress-db
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: wordpress-db
+        ports:
+          - containerPort:  3306
+            name:  wordpress-db
+        volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: wordpress-data
+      volumes:
+        - name: wordpress-data
+          hostPath:
+            path: /home/zakaria/Desktop/myWork/GWidgets/workspace/wordpress-docker/mysql
+            type: Directory
