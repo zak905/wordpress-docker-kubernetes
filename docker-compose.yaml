@@ -7,6 +7,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./wp-config.php:/var/www/html/wp-config.php
+      - ./twentyseventeen:/var/www/html/wp-content/themes/twentyseventeen
     environment:
      - WORDPRESS_SITE_URL=localhost
      - WORDPRESS_HOME_URL=localhost
