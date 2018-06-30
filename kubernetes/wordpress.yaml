@@ -39,3 +39,11 @@ spec:
               key: db_host                       
         ports:
         - containerPort:  80
+        volumeMounts:
+          - mountPath: /var/www/html/wp-content/themes/twentyseventeen
+            name: wordpress-theme
+      volumes:
+        - name: wordpress-theme
+          hostPath:
+            path: /home/wordpress-docker-kubernetes/twentyseventeen
+            type: Directory
